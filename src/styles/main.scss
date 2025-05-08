@@ -5,6 +5,7 @@
 @use 'available-devices';
 @use 'faq';
 @use 'footer';
+@use 'header';
 
 @font-face {
     font-family: Avenir;
@@ -64,14 +65,26 @@ body {
 /*criando as classes de título*/
 .title--big {
     @include title(44px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
 }
 
 .title {
     @include title;
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
 }
 
 .title--small {
     @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px);
+    }
 }
 
 .button {
@@ -83,8 +96,6 @@ body {
     background-color: #6421ff;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
 }
 
 .image-text-section {
@@ -92,6 +103,17 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
+    @media (max-width: 768px) {
+        display: block;
+        .image-text-section__text_container {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 95vw;
+        }
+    }
 
     img {
         max-width: 100%;
@@ -122,7 +144,23 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
+
+            @media (max-width: 768px) {
+                position: relative;
+                left: 0;
+                width: 100%;    
+            }
         }
     }
 
+    @media (max-width: 768px) {
+        .image-text-section__text_container,
+        .image-text-section--image-full-width__text_container {
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
